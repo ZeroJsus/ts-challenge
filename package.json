@@ -1,0 +1,19 @@
+{
+  "name": "ts-challenge",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "ts-standard",
+    "lint:fix": "ts-standard"
+  },
+  "author": "ZeroJsus",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^18.7.17",
+    "tslint": "^6.1.3",
+    "typescript": "^4.8.3",
+    "ts-standard": "11.0.0"
+  }
+}
