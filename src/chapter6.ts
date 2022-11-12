@@ -2,7 +2,7 @@
  * @Author: yangrongxin
  * @Date: 2022-09-25 11:24:14
  * @LastEditors: yangrongxin
- * @LastEditTime: 2022-10-03 17:42:05
+ * @LastEditTime: 2022-10-04 00:07:06
  */
 // function deleteUser (user: { id?: number, name: string }): void {
 //   delete user.id
@@ -58,3 +58,53 @@
 
 // console.log(d)
 // console.log(e)
+
+// keyof
+function get<
+  O extends Object,
+  K extends keyof O
+>(
+  o: O,
+  k: K
+): O[K] {
+  return o[k]
+}
+
+type WeekDay = 'Mon' | 'Tue' | 'Wed' | 'Thu' | 'Fri';
+type Day = WeekDay | 'Sat' | 'Sun';
+// record
+// let nextDay: Record<WeekDay, Day> = {
+//   Mon: 'Tue',
+//   Tue: "Mon",
+//   Wed: "Mon",
+//   Thu: "Mon",
+//   Fri: "Mon"
+// }
+// mapping type
+let nextDay: {[k in WeekDay]: Day} = {
+  Mon: 'Tue',
+  Tue: "Mon",
+  Wed: "Mon",
+  Thu: "Mon",
+  Fri: "Mon"
+}
+
+// 元祖类型推导优化
+function tuple<
+  T extends unknown[]
+>(
+  ...ts: T
+): T {
+  return ts
+}
+
+let a = tuple(1, true)
+
+// function isString(a: unknown): boolean {
+//   return typeof a === 'string'
+// }
+// 用户自定义类型防护
+function isString(a: unknown): a is string {
+  return typeof a === 'string'
+}
+isString('123')
